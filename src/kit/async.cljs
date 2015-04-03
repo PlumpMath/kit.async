@@ -9,7 +9,7 @@
    function. Once the callback gets called its argument is
    put on the returned channel"
   [f & args]
-  (let [c  (chan)
+  (let [c  (chan 5)
         cb (fn [x]
              (if (or (nil? x)
                      (undefined? x))
