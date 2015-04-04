@@ -35,3 +35,12 @@
                  (put! c x))))]
     (apply f (concat args [cb]))
     c))
+
+(defprotocol EventSource
+  "The EventSource protocol can be extended by anything
+   that wants to provide a simple way to subscribe to named
+   events. Extenders of this protocol can automatically be
+   used with the otehr wrappers in this namespace"
+  (on [_ evt f]))
+
+(def <on (partial lift on))
